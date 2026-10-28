@@ -1,7 +1,6 @@
 package io.github.kd1363656.basics.lesson01
 
-fun main()
-{
+fun main() {
     println("Hello")
 
     // 一行コメント

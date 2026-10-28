@@ -1,7 +1,6 @@
 package io.github.kd1363656.basics.lesson02
 
-fun main()
-{
+fun main() {
     var done  : Int = 3
     var total : Int = 4
 
