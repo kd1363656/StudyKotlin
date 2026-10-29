@@ -1,5 +1,6 @@
 package io.github.kd1363656.basics.lesson03
 
+// 第3章 : 制御構文 (if / when / for / while)
 fun main()
 {
     showIfStatement    ()

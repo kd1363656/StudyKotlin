@@ -1,6 +1,6 @@
 package io.github.kd1363656.basics.lesson01
 
-// 第二章 : Kotlinの第一歩(main, コメント, val / var, 型推論, 文と式)
+// 第1章 : Kotlinの第一歩(main, コメント, val / var, 型推論, 文と式)
 // 節を1つ書き終えるたびに、その父子の行の // を外して実行する
 fun main() {
     showHello         ()

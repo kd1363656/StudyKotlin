@@ -1,6 +1,6 @@
 package io.github.kd1363656.basics.lesson02
 
-// 第3章 : 基本の型・演算子・文字列
+// 第2章 : 基本の型・演算子・文字列
 fun main() {
     showBasicTypes      ()
     showTypeConversion  ()
