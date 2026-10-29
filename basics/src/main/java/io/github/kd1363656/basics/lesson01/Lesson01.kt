@@ -1,40 +1,89 @@
 package io.github.kd1363656.basics.lesson01
 
+// 第二章 : Kotlinの第一歩(main, コメント, val / var, 型推論, 文と式)
+// 節を1つ書き終えるたびに、その父子の行の // を外して実行する
 fun main() {
+    showHello         ()
+    showComments      ()
+    showValAndVar     ()
+    showTypeInference ()
+    showTypeAnnotation()
+    showIfExpression  ()
+
+    // ここから問題
+    exerciseOne()
+}
+
+// 最初のプログラム
+fun showHello() {
     println("Hello")
+    print  ("print は改行しない。")
+    print  ("ので、続けて表示される")
+    println()                         // なにも渡さない println は、改行だけする
+    println("Kotlin")
+}
 
-    // 一行コメント
-    /* 複数行
-    *  コメント*/
-    /**
-     * kDoc(ドキュメントコメント)。関数やクラスの説明を書く。
-     * @param name 名前
-     */
+/**
+ *  KDoc (ドキュメントコメント)。関数やクラスのすぐ上に書いて、説明を残す
+ *  Android Studio で関数名にマウスを乗せると、この説明が表示される
+ */
+fun showComments() {
+    // 1行コメント : // から行の最後までが無視される
+    println("コメントは実行されない") // 行の途中から書いても良い
 
-    val name      = "霊夢" // 再代入できない
-    var doneCount = 0      // 再代入できる
+    /* 複数行コメント :
+       ここに書いた行は、全部無視される */
+}
 
-    doneCount++        // OK
-    // name = "魔理沙" // コンパイルエラー : val は再代入できない
+// [val と var]
+fun showValAndVar() {
+    val name      : String = "霊夢" // 再代入できない
+    var doneCount : Int    = 0      // 再代入できる
 
-    println("${name} : ${doneCount} 件完了。")
+    doneCount = doneCount + 1 // OK : var なので新しい値を入れられる
+    doneCount += 1            // C++ と 同じく += も使える
+    // name = "魔理沙"       // コンパイルエラー : val は再代入できない
 
-    val list = mutableListOf("掃除")
-    list.add("買い物")        // OK : リストの中身は変えられる
-    // list = mutbaleListOf() // NG : 別のリストを代入するのは不可
+    println("${name} : ${doneCount} 件完了") // 霊夢 : 2 件完了
 
-    // 型の明示は(val or var) 変数名 : 型という書き方
-    val count : Int    = 3      // Int と推論される
-    val rate  : Float  = 0.5F   // Doubleと推論される
-    val title : String = "掃除" // Stringと推論される
+//    // valは「値の変更を禁止する」だけで中身の変更は禁止しない
+//    val list = mutableListOf<String>("掃除")
+//    list.add("買い物")                 // OK : リストの中身は変えれる
+//    // list = mutableListof("買い物") // NG : 別のリストを代入するのは不可
+}
+// 「型推論と型注釈」(その1 : 型推論)
+fun showTypeInference() {
+    val count     = 3      // Intと推論される (整数はまずInt)
+    val bigCount  = 3L     // 最後にLをつけると Long
+    val rate      = 0.5    // Double と推論される(少数はまず Double)
+    val smallRate = 0.5F   // 最後に f をつけると Float
+    val title     = "掃除" // String と推論される
 
-    // 参考演算子はないため以下の書き方になる
-    val label = if(doneCount > 0) "えらい" else "頑張ろう"
+    println("${count} ${bigCount} ${rate} ${smallRate} ${title}") // 3, 3, 0.5, 0.5, 掃除
+}
 
-    // ここから練習問題(コードのみ)
-    // 問2
-    val charaName : String = "魔理沙"
-    val taskCount : Int    = 3
+// 「型推論と型注釈」(その2 : 型注釈)
+fun showTypeAnnotation() {
+    val count : Int   = 3
+    val rate  : Float = 0.5F
+    val total : Long  = 10  // 型を Long と書いたので、 3L のように L を付けなくてよい
 
-    println("${charaName}:残り${taskCount}件だぜ!")
+    val message : String // 後で代入するなら型注釈が必要
+
+    message = "おはよう" // 使う前に必ず値を入れる
+
+    println("${count}, ${rate} ${total} ${message}") // 3, 0.5, 10, おはよう
+}
+
+fun showIfExpression() {
+    val doneCount = 1
+    val label = if (doneCount > 0) "えらい！" else "頑張ろう"
+    println(label) // えらい
+}
+
+fun exerciseOne() {
+    val name    : String = "魔理沙"
+    val taskNum : Int    = 3
+
+    println("${name} : 残り${taskNum}件だぜ")
 }
