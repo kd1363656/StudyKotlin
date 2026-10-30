@@ -8,6 +8,9 @@ fun main() {
     showThrowAndCheck ()
     showResult        ()
     showSealedResult  ()
+
+    // ここから問題
+
 }
 
 // 「ジェネリクス」
@@ -132,4 +135,15 @@ fun showSealedResult() {
     println(messageFor(save("")))     // タイトルを入力してください
     println(messageFor(SaveResult.Failed(IllegalStateException("容量が足りません。"))))
     // 保存に失敗しました : 容量が足りません
+}
+
+data class Pair2<A, B>(
+    var first  : A,
+    var second : B
+)
+
+fun exerciseOne() : Pair<Int, Int>{
+    val text = runCatching { val (h, m) = text.split(":").map { it.toInt() }
+                             h to m
+                           }.getOrNull()
 }

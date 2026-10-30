@@ -16,3 +16,7 @@ kotlin {
 tasks.withType<JavaExec>().configureEach {
     jvmArgs("-Dstdout.encoding=UTF-8", "-Dstderr.encoding=UTF-8")
 }
+
+dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.2")
+}
