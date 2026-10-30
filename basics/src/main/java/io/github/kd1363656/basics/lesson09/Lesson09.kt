@@ -12,6 +12,20 @@ fun main() {
     showExtensionFunction  ()
     showScopeFunctions     ()
     showRunAndWith         ()
+
+    // ここから問題
+    val tasks = listOf(
+        Task("掃除", true, 2),
+        Task("買い物", false, 1),
+        Task("レポート", false ,3)
+    )
+
+    tasks.filter { !it.isDone }.joinToString("、") { it.title }
+
+    // 末尾にキャラクターの語尾をつける拡張関数
+    val text : String = ""
+
+    println("がんばるん".withEnding("だぜ"))
 }
 
 // 「ラムダ式と関数型」
@@ -181,4 +195,8 @@ fun showRunAndWith() {
     }
 
     println(count) // 20
+}
+
+fun String.withEnding(ending : String) : String {
+    return this + ending
 }
