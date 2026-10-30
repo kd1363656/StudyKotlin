@@ -20,7 +20,7 @@ fun main() {
 
     val daily = DailyProgress(3, 5)
 
-    println("残り数 : ${daily.remaining()}")
+    println("残り数 : ${daily.remaining}")
 }
 
 // 「クラスの定義」
