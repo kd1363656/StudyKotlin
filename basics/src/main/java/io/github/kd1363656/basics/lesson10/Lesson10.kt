@@ -10,7 +10,7 @@ fun main() {
     showSealedResult  ()
 
     // ここから問題
-
+    exerciseOne("07:30")
 }
 
 // 「ジェネリクス」
@@ -142,8 +142,7 @@ data class Pair2<A, B>(
     var second : B
 )
 
-fun exerciseOne() : Pair<Int, Int>{
-    val text = runCatching { val (h, m) = text.split(":").map { it.toInt() }
-                             h to m
-                           }.getOrNull()
-}
+fun exerciseOne(text : String) : Pair<Int, Int>? = runCatching {
+    val (h, m) = text.split(":").map { it.toInt() }
+    h to m
+}.getOrNull()
