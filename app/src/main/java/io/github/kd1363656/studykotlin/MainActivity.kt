@@ -12,11 +12,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import io.github.kd1363656.studykotlin.ui.theme.StudyKotlinTheme
+import androidx.lifecycle.lifecycleScope
+import io.github.kd1363656.studykotlin.lesson12.runLesson12
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        lifecycleScope.launch {
+            runLesson12(this@MainActivity)
+        }
         setContent {
             StudyKotlinTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
